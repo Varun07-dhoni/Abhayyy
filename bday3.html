@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --dark-bg: #121212;
+            --card-bg: #1E1E1E;
+            --text-light: #F5F5F5;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: var(--dark-bg);
+            font-family: 'Playfair Display', serif;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        
+        .card-container {
+            position: relative;
+            width: 380px;
+            height: 600px;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+        
+        .front {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            z-index: 2;
+            transform: rotateY(0deg);
+            border: 1px solid var(--gold);
+            justify-content: center;
+        }
+        
+        .inside {
+            background: var(--card-bg);
+            z-index: 1;
+            transform: rotateY(180deg);
+            border: 1px solid var(--gold);
+            padding-top: 30px;
+        }
+        
+        .card-container.open {
+            transform: rotateY(180deg);
+        }
+        
+        /* LARGER PHOTO FRAME */
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        
+        .birthday-title {
+            font-size: 36px;
+            color: var(--gold);
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .wish-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            max-width: 280px;
+            margin: 15px 0;
+        }
+        
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--gold);
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .gold-border {
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+            opacity: 0;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        
+        .click-hint {
+            position: absolute;
+            bottom: 30px;
+            color: rgba(212, 175, 55, 0.7);
+            font-size: 14px;
+            animation: pulse 2s infinite;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .floral-divider {
+            width: 80%;
+            height: 20px;
+            margin: 15px 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" fill="%23D4AF37"><path d="M10,10 Q15,5 20,10 Q25,15 30,10 Q35,5 40,10 Q45,15 50,10 Q55,5 60,10 Q65,15 70,10 Q75,5 80,10 Q85,15 90,10"/></svg>');
+            background-repeat: repeat-x;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container" id="card">
+        <div class="page front">
+            <div class="gold-border"></div>
+            <div style="font-size: 24px; color: var(--gold); margin-bottom: 30px; font-weight: 700; letter-spacing: 1px;">For My Favorite Person</div>
+            <div style="font-size: 80px; margin: 20px 0; color: var(--gold);">✧</div>
+            <div class="click-hint">Tap to open</div>
+        </div>
+        
+        <div class="page inside">
+            <div class="gold-border"></div>
+            
+            <!-- LARGER PHOTO ON TOP -->
+            <div class="photo-frame">
+                <!-- REPLACE WITH YOUR IMAGE -->
+                <img src="shree.jpg.jpg" alt="The Love of My Life">
+            </div>
+            
+            <div class="birthday-title">Happy Birthday!!</div>
+            
+            <div class="floral-divider"></div>
+            
+            <div class="wish-text">
+                To the woman I want admire ,<br>
+                may your birthday be as beautiful as your smile,<br>
+                as warm as your heart,<br>
+                and as wonderful as you are.
+            </div>
+            
+            <div class="floral-divider"></div>
+            
+            <div class="signature">
+                LOTS OF LOVE TO YOU ❤️<br>
+                Shree❤️,<br>
+            </div>
+            
+            <div id="sparkles"></div>
+        </div>
+    </div>
+
+    <script>
+        // Open card on click - FIXED VERSION
+        const card = document.getElementById('card');
+        let isOpen = false;
+        
+        card.addEventListener('click', function() {
+            isOpen = !isOpen;
+            card.classList.toggle('open', isOpen);
+            
+            if (isOpen) {
+                createSparkles('sparkles', 30);
+            }
+        });
+
+        // Create sparkles
+        function createSparkles(containerId, count) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // Clear existing sparkles
+            
+            for (let i = 0; i < count; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+    </script>
+</body>
+</html>
